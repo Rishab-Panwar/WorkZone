@@ -1,12 +1,29 @@
-# WorkZone.tech
+<div align="center">
 
-> Multi-tenant, Sub-domain driven, AI-Powered HR Management Platform
+<img width="2057" height="765" alt="ChatGPT Image May 29, 2026, 06_35_18 PM" src="https://github.com/user-attachments/assets/bd9b856e-1717-4fcc-bb56-af0d3e5ce37f" />
+
+
+
+*Multi-tenant, Sub-domain driven, AI-Powered HR Management Platform*
 
 ***IIT Madras • Academic Project • Software Engineering (BSCS3001) • Team 10***
 
-WorkZone.tech is a multi-tenant, sub-domain driven, AI-powered HR Management Platform designed to streamline end-to-end HR operations for growing companies. It automates recruitment, employee management, learning workflows, and support processes using modern cloud technology and Generative AI. With company-specific workspaces and role-based dashboards, the system delivers a scalable and efficient HR experience.
+[Features](#3-project-key-features) · [Tech Stack](#2-tech-stack) · [Local Setup](#local-development) · [Deployment](#production-deployment-gcp-vm) · [Docs](#4-documentation) · [Team](#5-about)
 
-<embed demo video here>
+![Frontend](https://img.shields.io/badge/Frontend-Next.js_%C2%B7_React_%C2%B7_TypeScript-0969DA)
+![Backend](https://img.shields.io/badge/Backend-FastAPI_%C2%B7_Python_3.12-0F6E56)
+![AI](https://img.shields.io/badge/AI-Gemini_%C2%B7_ChromaDB_%C2%B7_spaCy-BC4C00)
+![Infra](https://img.shields.io/badge/Infra-GCP_%C2%B7_Docker_%C2%B7_Redis-1A7F37)
+
+WorkZone.tech is a multi-tenant, AI-powered HR platform that automates recruitment, employee management, learning workflows, and support — with company-specific subdomains, role-based dashboards, and a full GenAI layer including AI interviews, resume ranking, and an HR helpdesk chatbot.
+
+**Docs:** [Notion](https://workzone-tech.notion.site/Project-Documentation-Hub-2af2b8868d2e80cf913bcc68285b2c87)
+
+</div>
+
+---
+
+___
 <img width="1872" height="908" alt="image" src="https://github.com/user-attachments/assets/c2208152-a092-4151-8f9d-08eecf74696d" />
 <img width="1872" height="894" alt="image" src="https://github.com/user-attachments/assets/25b553e0-ccc9-4864-b39f-bb79896e47f8" />
 
