@@ -8,6 +8,8 @@ WorkZone.tech is a multi-tenant, sub-domain driven, AI-powered HR Management Pla
 
 <embed demo video here>
 <img width="1872" height="908" alt="image" src="https://github.com/user-attachments/assets/c2208152-a092-4151-8f9d-08eecf74696d" />
+<img width="1872" height="894" alt="image" src="https://github.com/user-attachments/assets/25b553e0-ccc9-4864-b39f-bb79896e47f8" />
+
 
 ## Workzone Setup & Deployment
 
