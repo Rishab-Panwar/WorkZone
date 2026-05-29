@@ -15,7 +15,7 @@
 ![AI](https://img.shields.io/badge/AI-Gemini_%C2%B7_ChromaDB_%C2%B7_spaCy-BC4C00)
 ![Infra](https://img.shields.io/badge/Infra-GCP_%C2%B7_Docker_%C2%B7_Redis-1A7F37)
 
-WorkZone.tech is a multi-tenant, AI-powered HR platform that automates recruitment, employee management, learning workflows, and support — with company-specific subdomains, role-based dashboards, and a full GenAI layer including AI interviews, resume ranking, and an HR helpdesk chatbot.
+WorkZone.tech is a multi-tenant, AI-powered HR platform that automates recruitment, employee management, learning workflows, and support with company-specific subdomains, role-based dashboards, and a full GenAI layer including AI interviews, resume ranking, and an HR helpdesk chatbot.
 
 **Docs:** [Notion](https://workzone-tech.notion.site/Project-Documentation-Hub-2af2b8868d2e80cf913bcc68285b2c87)
 
