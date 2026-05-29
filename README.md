@@ -10,11 +10,6 @@
 
 [Features](#3-project-key-features) · [Tech Stack](#2-tech-stack) · [Local Setup](#local-development) · [Deployment](#production-deployment-gcp-vm) · [Docs](#4-documentation) · [Team](#5-about)
 
-![Frontend](https://img.shields.io/badge/Frontend-Next.js_%C2%B7_React_%C2%B7_TypeScript-0969DA)
-![Backend](https://img.shields.io/badge/Backend-FastAPI_%C2%B7_Python_3.12-0F6E56)
-![AI](https://img.shields.io/badge/AI-Gemini_%C2%B7_ChromaDB_%C2%B7_spaCy-BC4C00)
-![Infra](https://img.shields.io/badge/Infra-GCP_%C2%B7_Docker_%C2%B7_Redis-1A7F37)
-
 WorkZone.tech is a multi-tenant, AI-powered HR platform that automates recruitment, employee management, learning workflows, and support with company-specific subdomains, role-based dashboards, and a full GenAI layer including AI interviews, resume ranking, and an HR helpdesk chatbot.
 
 
