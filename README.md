@@ -7,6 +7,7 @@
 WorkZone.tech is a multi-tenant, sub-domain driven, AI-powered HR Management Platform designed to streamline end-to-end HR operations for growing companies. It automates recruitment, employee management, learning workflows, and support processes using modern cloud technology and Generative AI. With company-specific workspaces and role-based dashboards, the system delivers a scalable and efficient HR experience.
 
 <embed demo video here>
+<img width="1872" height="908" alt="image" src="https://github.com/user-attachments/assets/c2208152-a092-4151-8f9d-08eecf74696d" />
 
 ## Workzone Setup & Deployment
 
