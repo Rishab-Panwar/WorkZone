@@ -18,7 +18,8 @@ WorkZone.tech is a multi-tenant, AI-powered HR platform that automates recruitme
 ---
 
 ___
-<img width="1872" height="908" alt="image" src="https://github.com/user-attachments/assets/c2208152-a092-4151-8f9d-08eecf74696d" />
+<img width="1892" height="965" alt="Screenshot 2026-07-01 024311" src="https://github.com/user-attachments/assets/5877d431-4fa7-46c4-8055-e29025107760" />
+
 <img width="1872" height="894" alt="image" src="https://github.com/user-attachments/assets/25b553e0-ccc9-4864-b39f-bb79896e47f8" />
 
 
