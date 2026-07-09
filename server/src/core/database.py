@@ -14,7 +14,13 @@ class TenantBase(DeclarativeBase):
 
 from src.models.tenant import *
 
-async_engine = create_async_engine(url=Config.ASYNC_DATABASE_URL, echo=True, connect_args={"prepared_statement_cache_size": 0})
+async_engine = create_async_engine(
+    url=Config.ASYNC_DATABASE_URL,
+    echo=False,
+    pool_pre_ping=True,
+    pool_recycle=300,
+    connect_args={"prepared_statement_cache_size": 0},
+)
 AsyncSessionLocal = async_sessionmaker(autocommit=False, autoflush=False, bind=async_engine)
 
 async def init_db() -> None:
@@ -41,7 +47,12 @@ async def get_schema(tenant_id: str) -> AsyncGenerator[AsyncSession, None]:
             raise
 
 
-sync_engine = create_engine(url=Config.SYNC_DATABASE_URL, echo=True)
+sync_engine = create_engine(
+    url=Config.SYNC_DATABASE_URL,
+    echo=False,
+    pool_pre_ping=True,
+    pool_recycle=300,
+)
 SyncSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=sync_engine)
 
 def create_tenant_schema(tenant_id: str):

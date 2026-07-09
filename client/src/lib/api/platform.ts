@@ -379,6 +379,10 @@ export const platformOnboardingAPI = {
       } catch (error) {
         lastError = error as Error;
 
+        // Onboarding creates a tenant and is NOT safe to auto-resend: a lost
+        // response or a 5xx would still have created the workspace, and a retry
+        // would then fail with 409 "already exists". The only safe retry is
+        // re-issuing ONCE after refreshing an expired token.
         if (error instanceof PlatformAPIError && error.isTokenExpired && i === 0) {
           try {
             if (!platformRefreshPromise) {
@@ -395,15 +399,7 @@ export const platformOnboardingAPI = {
           }
         }
 
-        if (error instanceof PlatformAPIError && error.status >= 400 && error.status < 500 && !error.isTokenExpired) {
-          throw error;
-        }
-
-        if (i === 2) {
-          break;
-        }
-
-        await new Promise((resolve) => setTimeout(resolve, Math.pow(2, i) * 1000));
+        throw error;
       }
     }
 

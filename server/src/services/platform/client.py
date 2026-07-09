@@ -77,16 +77,26 @@ class ClientService:
         return {**tokens, "account_status": account_status, "subscription_status": subscription_status}
 
     async def onboarding(self, id: str, data: ClientOnboarding, logo: UploadFile):
+        client = await self.client_repo.get_client_by_id(id)
+        if not client:
+            raise ClientNotFoundError(f"Client {id} does not exist!")
+
+        # Idempotent: this client has already onboarded this exact workspace
+        # (e.g. a retried/duplicate request). Return success instead of a conflict.
+        if client.tenant_id == data.tenant_id:
+            return {
+                "account_status": self.get_account_status(client),
+                "subscription_status": self.get_subscription_status(client),
+            }
+
+        # tenant_id is taken by a *different* client -> real conflict
         is_exist = await self.client_repo.is_tenant_exist(data.tenant_id)
         if is_exist:
             raise TenantAlreadyExistsError(f"Tenant ID {data.tenant_id} already exists!")
-        
+
         storage_client.validate_file(logo, [".png", ".jpg", ".jpeg", ".webp"])
         blob_name, url = storage_client.upload(logo, "platform/logo")
 
-        is_exist = await self.client_repo.get_client_by_id(id)
-        if not is_exist:
-            raise ClientNotFoundError(f"Client {id} does not exist!")
         client = await self.client_repo.setup_onboarding(
             id=id,
             tenant_id=data.tenant_id,
