@@ -24,7 +24,7 @@ def initialize_gemini_client():
             return None
                                                                 
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        model = genai.GenerativeModel('gemini-2.5-flash')
         logger.info("Gemini Flash 2.5 client initialized successfully")
         return model
         
