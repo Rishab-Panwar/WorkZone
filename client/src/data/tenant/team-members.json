@@ -2,7 +2,7 @@
   {
     "id": "emp-050",
     "name": "Rajesh Kumar",
-    "email": "rajesh.kumar@workzone.tech",
+    "email": "rajesh.kumar@workzone.rishabai.me",
     "employeeId": "WZ050",
     "department": "Engineering",
     "designation": "Engineering Manager",
@@ -16,7 +16,7 @@
   {
     "id": "emp-002",
     "name": "Amit Singh",
-    "email": "amit.singh@workzone.tech",
+    "email": "amit.singh@workzone.rishabai.me",
     "employeeId": "WZ002",
     "department": "Engineering",
     "designation": "Full Stack Developer",
@@ -30,7 +30,7 @@
   {
     "id": "emp-003",
     "name": "Sneha Reddy",
-    "email": "sneha.reddy@workzone.tech",
+    "email": "sneha.reddy@workzone.rishabai.me",
     "employeeId": "WZ003",
     "department": "Engineering",
     "designation": "Frontend Developer",
@@ -44,7 +44,7 @@
   {
     "id": "emp-004",
     "name": "Rahul Verma",
-    "email": "rahul.verma@workzone.tech",
+    "email": "rahul.verma@workzone.rishabai.me",
     "employeeId": "WZ004",
     "department": "Engineering",
     "designation": "Backend Developer",
@@ -58,7 +58,7 @@
   {
     "id": "emp-005",
     "name": "Kavya Nair",
-    "email": "kavya.nair@workzone.tech",
+    "email": "kavya.nair@workzone.rishabai.me",
     "employeeId": "WZ005",
     "department": "Engineering",
     "designation": "DevOps Engineer",
@@ -72,7 +72,7 @@
   {
     "id": "emp-006",
     "name": "Arjun Mehta",
-    "email": "arjun.mehta@workzone.tech",
+    "email": "arjun.mehta@workzone.rishabai.me",
     "employeeId": "WZ006",
     "department": "Design",
     "designation": "Senior UX Designer",
@@ -86,7 +86,7 @@
   {
     "id": "emp-007",
     "name": "Pooja Gupta",
-    "email": "pooja.gupta@workzone.tech",
+    "email": "pooja.gupta@workzone.rishabai.me",
     "employeeId": "WZ007",
     "department": "HR",
     "designation": "HR Executive",
@@ -100,7 +100,7 @@
   {
     "id": "emp-008",
     "name": "Vikram Khanna",
-    "email": "vikram.khanna@workzone.tech",
+    "email": "vikram.khanna@workzone.rishabai.me",
     "employeeId": "WZ008",
     "department": "Sales",
     "designation": "Sales Manager",
@@ -114,7 +114,7 @@
   {
     "id": "emp-009",
     "name": "Anjali Bose",
-    "email": "anjali.bose@workzone.tech",
+    "email": "anjali.bose@workzone.rishabai.me",
     "employeeId": "WZ009",
     "department": "Marketing",
     "designation": "Digital Marketing Manager",
@@ -128,7 +128,7 @@
   {
     "id": "emp-010",
     "name": "Karthik Iyer",
-    "email": "karthik.iyer@workzone.tech",
+    "email": "karthik.iyer@workzone.rishabai.me",
     "employeeId": "WZ010",
     "department": "Engineering",
     "designation": "QA Engineer",
@@ -142,7 +142,7 @@
   {
     "id": "emp-051",
     "name": "Neha Kapoor",
-    "email": "neha.kapoor@workzone.tech",
+    "email": "neha.kapoor@workzone.rishabai.me",
     "employeeId": "WZ051",
     "department": "Design",
     "designation": "Design Lead",
@@ -156,7 +156,7 @@
   {
     "id": "emp-052",
     "name": "Deepak Joshi",
-    "email": "deepak.joshi@workzone.tech",
+    "email": "deepak.joshi@workzone.rishabai.me",
     "employeeId": "WZ052",
     "department": "HR",
     "designation": "HR Manager",
@@ -170,7 +170,7 @@
   {
     "id": "emp-100",
     "name": "Arvind Patel",
-    "email": "arvind.patel@workzone.tech",
+    "email": "arvind.patel@workzone.rishabai.me",
     "employeeId": "WZ100",
     "department": "Engineering",
     "designation": "VP Engineering",

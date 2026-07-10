@@ -5,11 +5,11 @@ import type { NextRequest } from 'next/server';
  * Multi-tenant middleware for subdomain routing
  * 
  * Platform (main domain):
- *   - workzone.tech → app/(platform)/*
- *   - www.workzone.tech → app/(platform)/*
+ *   - workzone.rishabai.me → app/(platform)/*
+ *   - www.workzone.rishabai.me → app/(platform)/*
  * 
  * Tenant (subdomain):
- *   - company.workzone.tech → app/(tenant)/*
+ *   - company.workzone.rishabai.me → app/(tenant)/*
  *   - company.localhost:3000 → app/(tenant)/* (development)
  */
 export function middleware(request: NextRequest) {
@@ -67,18 +67,18 @@ export function middleware(request: NextRequest) {
  * Examples:
  *   - localhost:3000 → null
  *   - company.localhost:3000 → "company"
- *   - workzone.tech → null
- *   - www.workzone.tech → "www"
- *   - company.workzone.tech → "company"
+ *   - workzone.rishabai.me → null
+ *   - www.workzone.rishabai.me → "www"
+ *   - company.workzone.rishabai.me → "company"
  */
 function getSubdomain(hostname: string): string | null {
   // Remove port if present
   const host = hostname.split(':')[0];
 
-  // Platform domain from env (e.g. workzone.tech OR workzone.noctivagous.me).
+  // Platform domain from env (e.g. workzone.rishabai.me OR workzone.noctivagous.me).
   // We compare by suffix so any domain depth works without code changes.
   const platformDomain =
-    process.env.NEXT_PUBLIC_DOMAIN_NAME || 'workzone.tech';
+    process.env.NEXT_PUBLIC_DOMAIN_NAME || 'workzone.rishabai.me';
 
   // For localhost testing: localhost or company.localhost
   if (host.includes('localhost')) {
@@ -86,7 +86,7 @@ function getSubdomain(hostname: string): string | null {
     return parts.length >= 2 ? parts[0] : null; // 'company' from 'company.localhost'
   }
 
-  // Platform apex (workzone.tech / workzone.noctivagous.me) -> not a tenant
+  // Platform apex (workzone.rishabai.me / workzone.noctivagous.me) -> not a tenant
   if (host === platformDomain) {
     return null;
   }

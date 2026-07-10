@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL || "https://workzone.tech"
+    process.env.NEXT_PUBLIC_APP_URL || "https://workzone.rishabai.me"
   ),
   openGraph: {
     title: "WorkZone.tech - AI-Powered HR Management Platform",
     description:
       "Streamline your HR operations with intelligent automation, bias-free recruitment, and data-driven insights.",
-    url: "https://workzone.tech",
+    url: "https://workzone.rishabai.me",
     siteName: "WorkZone.tech",
     locale: "en_US",
     type: "website",

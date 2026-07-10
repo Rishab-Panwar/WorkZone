@@ -166,7 +166,7 @@ function getTenantSubdomainFromUrl(): string | null {
   const hostname = window.location.hostname;
   const host = hostname.split(":")[0];
   const platformDomain =
-    process.env.NEXT_PUBLIC_DOMAIN_NAME || "workzone.tech";
+    process.env.NEXT_PUBLIC_DOMAIN_NAME || "workzone.rishabai.me";
 
   // localhost or company.localhost
   if (host.includes("localhost")) {
@@ -181,13 +181,13 @@ function getTenantSubdomainFromUrl(): string | null {
     return "custom-domain";
   }
 
-  // Platform subdomain: company.workzone.tech
+  // Platform subdomain: company.workzone.rishabai.me
   const parts = host.split(".");
   const platformParts = platformDomain.split(".");
 
   // Hostname should have more parts than the platform domain
   if (parts.length > platformParts.length) {
-    return parts[0]; // Return 'company' from 'company.workzone.tech'
+    return parts[0]; // Return 'company' from 'company.workzone.rishabai.me'
   }
 
   return null;
@@ -195,7 +195,7 @@ function getTenantSubdomainFromUrl(): string | null {
 
 /**
  * Check if current hostname is a platform subdomain (not a custom domain)
- * Returns true for: sandesh.workzone.tech
+ * Returns true for: sandesh.workzone.rishabai.me
  * Returns false for: jobs.noctivagous.me, hr.agimagic.in
  */
 function isPlatformSubdomain(): boolean {
@@ -203,9 +203,9 @@ function isPlatformSubdomain(): boolean {
 
   const hostname = window.location.hostname;
   const platformDomain =
-    process.env.NEXT_PUBLIC_DOMAIN_NAME || "workzone.tech";
+    process.env.NEXT_PUBLIC_DOMAIN_NAME || "workzone.rishabai.me";
 
-  // Check if hostname ends with platform domain (e.g., sandesh.workzone.tech)
+  // Check if hostname ends with platform domain (e.g., sandesh.workzone.rishabai.me)
   return hostname.endsWith(`.${platformDomain}`);
 }
 

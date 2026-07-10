@@ -161,14 +161,14 @@ export const TenantFooter = () => {
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <a
-              href={`mailto:support@${tenant?.subdomain}.workzone.tech`}
+              href={`mailto:support@${tenant?.subdomain}.workzone.rishabai.me`}
               className="flex items-center gap-2 hover:text-foreground transition-colors"
             >
               <Mail className="h-4 w-4" />
               <span className="hidden sm:inline">Contact Support</span>
             </a>
             <span className="text-border">|</span>
-            <span className="text-xs">{tenant?.subdomain}.workzone.tech</span>
+            <span className="text-xs">{tenant?.subdomain}.workzone.rishabai.me</span>
           </div>
         </div>
       </div>

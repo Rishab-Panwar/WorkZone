@@ -44,7 +44,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const FALLBACK_DNS_A_RECORD_IP =
   process.env.NEXT_PUBLIC_DNS_A_RECORD_IP || "35.237.10.52";
 const FALLBACK_DNS_CNAME_TARGET =
-  process.env.NEXT_PUBLIC_DNS_CNAME_TARGET || "tenant.workzone.tech";
+  process.env.NEXT_PUBLIC_DNS_CNAME_TARGET || "tenant.workzone.rishabai.me";
 
 // Helper to determine if domain is a subdomain
 const isSubdomain = (domain: string): boolean => {

@@ -69,10 +69,10 @@ export const TenantCTA = () => {
               <p className="text-sm text-muted-foreground">
                 Need help? Contact us at{" "}
                 <a
-                  href={`mailto:support@${tenant?.subdomain}.workzone.tech`}
+                  href={`mailto:support@${tenant?.subdomain}.workzone.rishabai.me`}
                   className="text-primary hover:underline font-medium"
                 >
-                  support@{tenant?.subdomain}.workzone.tech
+                  support@{tenant?.subdomain}.workzone.rishabai.me
                 </a>
               </p>
             </div>

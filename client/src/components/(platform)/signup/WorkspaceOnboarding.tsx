@@ -337,7 +337,7 @@ export default function WorkspaceOnboarding({
                   <div className="bg-slate-900/50 rounded-lg px-4 py-1.5 flex items-center gap-2 text-xs">
                     <Globe className="w-3 h-3 text-slate-400" />
                     <span className="text-slate-300">
-                      {tenantId || "yourcompany"}.workzone.tech
+                      {tenantId || "yourcompany"}.workzone.rishabai.me
                     </span>
                   </div>
                 </div>
@@ -661,7 +661,7 @@ export default function WorkspaceOnboarding({
                 <Globe className="w-3 h-3" />
                 <span>
                   {tenantId || "yourcompany"}
-                  <span className="text-foreground">.workzone.tech</span>
+                  <span className="text-foreground">.workzone.rishabai.me</span>
                 </span>
               </div>
               {errors.tenantId && (

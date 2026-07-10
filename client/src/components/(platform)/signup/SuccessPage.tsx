@@ -261,7 +261,7 @@ export default function SuccessPage({ signupData }: SuccessPageProps) {
                   </h2>
                   <div className="flex items-center gap-1.5 text-indigo-300/80 text-sm">
                     <Globe className="w-3.5 h-3.5" />
-                    <span>{signupData.tenantId}.workzone.tech</span>
+                    <span>{signupData.tenantId}.workzone.rishabai.me</span>
                   </div>
                 </div>
               </div>

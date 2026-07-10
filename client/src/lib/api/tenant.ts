@@ -5,13 +5,13 @@
 // Backend API URL - used for localhost development
 const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
 
-// Platform domain for subdomain detection (e.g., workzone.tech, workzone.noctivagous.me)
-const PLATFORM_DOMAIN = process.env.NEXT_PUBLIC_DOMAIN_NAME || 'workzone.tech';
+// Platform domain for subdomain detection (e.g., workzone.rishabai.me, workzone.noctivagous.me)
+const PLATFORM_DOMAIN = process.env.NEXT_PUBLIC_DOMAIN_NAME || 'workzone.rishabai.me';
 
 /**
  * Check if the current hostname is a custom domain (not a subdomain of the platform)
  * Custom domains: jobs.noctivagous.me, hr.company.com
- * Platform subdomains: company.workzone.tech
+ * Platform subdomains: company.workzone.rishabai.me
  */
 function isCustomDomain(): boolean {
   if (typeof window === 'undefined') return false;
@@ -32,7 +32,7 @@ function isCustomDomain(): boolean {
  * Backend extracts tenant_id from the Host header
  * 
  * So we call the SAME domain the frontend is on:
- * - https://sandesh.workzone.tech/api/tenant/... (Host: sandesh.workzone.tech)
+ * - https://sandesh.workzone.rishabai.me/api/tenant/... (Host: sandesh.workzone.rishabai.me)
  * - https://jobs.noctivagous.me/api/tenant/... (Host: jobs.noctivagous.me)
  * - http://sandesh.localhost:8000/api/tenant/... (for local dev)
  */
@@ -200,14 +200,14 @@ function getTenantSubdomain(): string | null {
     return null;
   }
 
-  // For production: company.workzone.tech (or whatever PLATFORM_DOMAIN is set to)
+  // For production: company.workzone.rishabai.me (or whatever PLATFORM_DOMAIN is set to)
   const parts = hostname.split('.');
   const platformParts = PLATFORM_DOMAIN.split('.');
   
   // Hostname should have more parts than the platform domain
-  // e.g., company.workzone.tech (3 parts) > workzone.tech (2 parts)
+  // e.g., company.workzone.rishabai.me (3 parts) > workzone.rishabai.me (2 parts)
   if (parts.length > platformParts.length) {
-    return parts[0]; // Return 'company' from 'company.workzone.tech'
+    return parts[0]; // Return 'company' from 'company.workzone.rishabai.me'
   }
 
   return null;

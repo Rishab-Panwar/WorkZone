@@ -232,7 +232,7 @@ function TenantInvitedSignupContent() {
                 <Input
                   id="pastedLink"
                   type="text"
-                  placeholder="https://example.workzone.tech/signup/invited?token=..."
+                  placeholder="https://example.workzone.rishabai.me/signup/invited?token=..."
                   value={pastedLink}
                   onChange={(e) => {
                     setPastedLink(e.target.value);

@@ -144,7 +144,7 @@ const FUIHeroWithBorders = () => {
                 <div className="flex-1 mx-4">
                   <div className="flex items-center justify-center gap-2 px-4 py-1.5 bg-gray-700/60 rounded-lg max-w-xs mx-auto">
                     <span className="text-xs text-gray-400">
-                      app.workzone.tech
+                      app.workzone.rishabai.me
                     </span>
                   </div>
                 </div>

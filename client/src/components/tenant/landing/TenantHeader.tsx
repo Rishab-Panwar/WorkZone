@@ -68,7 +68,7 @@ export const TenantHeader = () => {
                     {tenant?.brandName || "Company"}
                   </span>
                   <span className="text-[10px] text-muted-foreground hidden sm:block">
-                    {tenant?.subdomain}.workzone.tech
+                    {tenant?.subdomain}.workzone.rishabai.me
                   </span>
                 </div>
               </Link>

@@ -117,7 +117,7 @@ export default function TenantLayout({
             <p className="text-sm text-gray-500 mt-6">
               Need help?{" "}
               <a
-                href="mailto:support@workzone.tech"
+                href="mailto:support@workzone.rishabai.me"
                 className="text-indigo-600 hover:underline"
               >
                 Contact Support

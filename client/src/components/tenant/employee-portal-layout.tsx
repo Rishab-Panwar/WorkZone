@@ -71,7 +71,7 @@ const navigation = [
 // Mock employee data
 const employeeData = {
   name: "Priya Sharma",
-  email: "priya.sharma@workzone.tech",
+  email: "priya.sharma@workzone.rishabai.me",
   employeeId: "WZ001",
   designation: "Senior Software Engineer",
   avatar: "/avatars/priya.jpg",
