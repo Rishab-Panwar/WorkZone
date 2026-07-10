@@ -10,7 +10,7 @@
 
 [Features](#3-project-key-features) · [Tech Stack](#2-tech-stack) · [Local Setup](#local-development) · [Deployment](#production-deployment-gcp-vm) · [Docs](#4-documentation) · [Team](#5-about)
 
-WorkZone.tech is a multi-tenant, AI-powered HR platform that automates recruitment, employee management, learning workflows, and support with company-specific subdomains, role-based dashboards, and a full GenAI layer including AI interviews, resume ranking, and an HR helpdesk chatbot.
+WorkZone is a multi-tenant, AI-powered HR platform that automates recruitment, employee management, learning workflows, and support with company-specific subdomains, role-based dashboards, and a full GenAI layer including AI interviews, resume ranking, and an HR helpdesk chatbot.
 
 
 </div>
@@ -464,10 +464,10 @@ sudo docker start chromadb
 
 ## 3. Project Key Features
 
-WorkZone.tech delivers a complete, AI-driven HR ecosystem designed to automate and enhance major organizational workflows. Below are the core functional components of our platform:
+WorkZone delivers a complete, AI-driven HR ecosystem designed to automate and enhance major organizational workflows. Below are the core functional components of our platform:
 
 #### 1. Multi-Tenant Workspace System
-- Each company gets its own isolated HR portal (company.workzone.tech)
+- Each company gets its own isolated HR portal (company.workzone)
 - Supports custom domain mapping for a fully branded experience (hr.company.com)
 - Secure, scalable architecture to enable multiple organizations on a single platform
 
@@ -502,7 +502,7 @@ WorkZone.tech delivers a complete, AI-driven HR ecosystem designed to automate a
 
 All project documentation is available on Notion.
 
-**Notion Docs Home:** [WorkZone.tech - Project Documentation Hub](https://workzone-tech.notion.site/Project-Documentation-Hub-2af2b8868d2e80cf913bcc68285b2c87)
+**Notion Docs Home:** [WorkZone - Project Documentation Hub](https://workzone-tech.notion.site/Project-Documentation-Hub-2af2b8868d2e80cf913bcc68285b2c87)
 
 The workspace includes milestone reports, MOMs, problem statements, demo video links, client presentation slides, team contribution details and all other project-related resources.
 
