@@ -59,6 +59,9 @@ class LLMClient:
                 top_k=40,
                 max_output_tokens=8192,
                 system_instruction=system_instruction,
+                # gemini-2.5-flash "thinks" by default, adding several seconds.
+                # These are grounded/structured tasks, so disable it for speed.
+                thinking_config=types.ThinkingConfig(thinking_budget=0),
             )
 
             response = self.client.models.generate_content(
@@ -82,6 +85,8 @@ class LLMClient:
                 top_p=0.95,
                 top_k=40,
                 max_output_tokens=8192,
+                # Disable gemini-2.5-flash thinking to cut RAG answer latency.
+                thinking_config=types.ThinkingConfig(thinking_budget=0),
             )
             response = self.client.models.generate_content(
                 model=self.model_name,
@@ -101,6 +106,9 @@ class LLMClient:
             response = await self.client.aio.models.generate_content(
                 model=self.model_name,
                 contents=prompt,
+                config=types.GenerateContentConfig(
+                    thinking_config=types.ThinkingConfig(thinking_budget=0),
+                ),
             )
             return (response.text or "").strip()
         except Exception as e:
