@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pathlib import Path
+from typing import Optional
 
 class Settings(BaseSettings):
     SERVER_IP: str
@@ -15,9 +16,12 @@ class Settings(BaseSettings):
     GOOGLE_PRIVATE_KEY: str
     GOOGLE_CLIENT_EMAIL: str
     GCS_BUCKET_NAME: str
+    # Vertex AI region for Gemini text/embeddings/STT
+    GOOGLE_CLOUD_LOCATION: str = "us-central1"
 
-    # LLM APIs
-    GOOGLE_API_KEY: str
+    # LLM APIs (legacy AI Studio key — no longer used now that Gemini runs on
+    # Vertex AI via the service account; kept optional for backward compat).
+    GOOGLE_API_KEY: Optional[str] = None
 
     # JWT
     JWT_SECRET_KEY: str
