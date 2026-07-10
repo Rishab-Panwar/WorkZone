@@ -74,6 +74,14 @@ async def add_documents_to_chroma(
         embeddings = []
 
         for i, chunk in enumerate(chunks):
+            embedding = llm_client.generate_embedding(chunk.text)
+            if not embedding:
+                # Skip un-embeddable chunks rather than inserting a zero vector,
+                # which pollutes search results and can lock the collection to a
+                # wrong dimensionality.
+                logger.warning(f"Failed to generate embedding for chunk {i}; skipping")
+                continue
+
             chunk_id = f"{document_id}_chunk_{i}"
             ids.append(chunk_id)
             documents.append(chunk.text)
@@ -83,12 +91,11 @@ async def add_documents_to_chroma(
             chunk_metadata["blob_name"] = blob_name
             metadatas.append(chunk_metadata)
 
-            embedding = llm_client.generate_embedding(chunk.text)
-            if embedding:
-                embeddings.append(embedding)
-            else:
-                logger.warning(f"Failed to generate embedding for chunk {i}")
-                embeddings.append([0.0] * 768)
+            embeddings.append(embedding)
+
+        if not embeddings:
+            logger.error(f"No embeddings generated for {document_id}; nothing added to ChromaDB")
+            return document_id
 
         collection.add(
             ids=ids,

@@ -9,7 +9,7 @@ class LLMClient:
         self.api_key = Config.GOOGLE_API_KEY if hasattr(Config, 'GOOGLE_API_KEY') else None
         self.model_name = "gemini-2.5-flash"    # use this model for fast responses gemini-2.0-flash-exp 
         self.text_model = None
-        self.embedding_model_name = "models/text-embedding-004"
+        self.embedding_model_name = "models/gemini-embedding-001"
         
         if not self.api_key:
             print("WARNING: GOOGLE_API_KEY not found. LLMClient will be non-functional.")
