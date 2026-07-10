@@ -37,12 +37,12 @@ class StorageClient:
     def _upload(self, file: UploadFile, blob_name: str, expiration: int = 1, is_public: bool = False):
         blob = self.bucket.blob(blob_name)
         blob.upload_from_string(file.file.read(), content_type=file.content_type)
-        if is_public:
-            blob.make_public()
-            return blob_name, blob.public_url
-        else:
-            url = blob.generate_signed_url(expiration=timedelta(days=expiration))
-            return blob_name, url
+        # The bucket uses Uniform Bucket-Level Access, so per-object ACLs
+        # (blob.make_public) are disallowed. Serve everything via signed URLs;
+        # the app reads these blobs with credentials, so they never need to be
+        # publicly readable. `is_public` is kept for call-site compatibility.
+        url = blob.generate_signed_url(expiration=timedelta(days=expiration))
+        return blob_name, url
 
     def upload_unique(self, file: UploadFile, folder: str, expiration: int = 1, is_public: bool = False):
         blob_name = f"{folder}/{file.filename}"
