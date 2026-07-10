@@ -16,6 +16,10 @@ class AiInterviewRepository:
         result = await self.db.execute(select(AiInterview).where(AiInterview.id==id))
         return result.scalar_one_or_none()
 
+    async def get_ai_interview_by_application_id(self, application_id: UUID) -> AiInterview | None:
+        result = await self.db.execute(select(AiInterview).where(AiInterview.application_id==application_id))
+        return result.scalar_one_or_none()
+
     async def create_ai_interview(self, application_id: UUID) -> AiInterview:
         try:
             new_ai_interview = AiInterview(

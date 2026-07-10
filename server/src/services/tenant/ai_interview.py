@@ -22,14 +22,20 @@ class AiInterviewService:
         application = await self.application_repo.get_application_by_id(application_id)
         if not application:
             raise ApplicationNotFoundError("Application does not exist!")
-        
-        if application.status != ApplicationStatus.SHORTLISTED:
+
+        # Allow retakes even after a prior attempt has completed.
+        if application.status not in (ApplicationStatus.SHORTLISTED, ApplicationStatus.AI_INTERVIEW_COMPLETED):
             raise ApplicationNotShortlistedError("You are not shortlisted!")
 
-        ai_interview = await self.ai_interview_repo.is_application_id_exist(application_id)
-        if ai_interview:
-            raise AiInterviewAlreadyExistsError("An AI interview has already been created for this application.") 
-        
+        # Unlimited retakes: if an interview already exists, reset it for a
+        # fresh attempt instead of blocking. The live session state is keyed by
+        # this interview id in Redis and is overwritten when the interview starts.
+        existing = await self.ai_interview_repo.get_ai_interview_by_application_id(application_id)
+        if existing:
+            return await self.ai_interview_repo.update_ai_interview(
+                existing.id, {"report": None, "score": None, "completed_at": None}
+            )
+
         return await self.ai_interview_repo.create_ai_interview(application_id)
     
 
