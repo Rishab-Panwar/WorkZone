@@ -5,6 +5,7 @@ from sqlalchemy.schema import CreateSchema
 from .config import Config
 from typing import AsyncGenerator, Generator
 from contextlib import contextmanager
+from pathlib import Path
 
 class PublicBase(DeclarativeBase):
     metadata = MetaData(schema="public")
@@ -55,11 +56,47 @@ sync_engine = create_engine(
 )
 SyncSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=sync_engine)
 
+def _tenant_alembic_head() -> str | None:
+    """Latest revision of the tenant Alembic history (or None if unavailable)."""
+    from alembic.config import Config as AlembicConfig
+    from alembic.script import ScriptDirectory
+
+    ini_path = Path(__file__).resolve().parents[2] / "alembic_tenant.ini"
+    cfg = AlembicConfig(str(ini_path))
+    cfg.set_main_option("script_location", str(ini_path.parent / "alembic_tenant"))
+    return ScriptDirectory.from_config(cfg).get_current_head()
+
+
+def _stamp_tenant_alembic_version(tenant_id: str) -> None:
+    """Record an app-created tenant schema as already at the latest revision, so
+    the migrate step treats it as up to date instead of re-running the initial
+    migration (which fails with 'type role already exists'). Best-effort: a
+    failure here must never break onboarding, so it runs in its own transaction."""
+    try:
+        head = _tenant_alembic_head()
+        if not head:
+            return
+        with sync_engine.begin() as conn:
+            conn.execute(text(f"SET search_path TO {tenant_id}"))
+            conn.execute(text(
+                "CREATE TABLE IF NOT EXISTS alembic_version ("
+                "version_num VARCHAR(32) NOT NULL, "
+                "CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num))"
+            ))
+            conn.execute(text("DELETE FROM alembic_version"))
+            conn.execute(text("INSERT INTO alembic_version (version_num) VALUES (:rev)"), {"rev": head})
+    except Exception as e:
+        from src.core.logger import logger
+        logger.warning(f"Could not stamp alembic_version for tenant {tenant_id}: {e}")
+
+
 def create_tenant_schema(tenant_id: str):
     with sync_engine.begin() as conn:
         conn.execute(CreateSchema(tenant_id, if_not_exists=True))
         conn.execute(text(f"SET search_path TO {tenant_id}"))
         TenantBase.metadata.create_all(bind=conn)
+    # Separate transaction: stamping must not be able to roll back the schema.
+    _stamp_tenant_alembic_version(tenant_id)
 
 
 @contextmanager
