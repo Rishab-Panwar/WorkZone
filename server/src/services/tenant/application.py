@@ -9,6 +9,7 @@ from src.core.context import tenant_context
 from src.core.logger import logger
 from src.models.tenant import Application, ApplicationStatus
 from sqlalchemy.orm import selectinload
+from sqlalchemy.orm.attributes import set_committed_value
 
 class ApplicationService:
     def __init__(self, job_repo: JobRepository, application_repo: ApplicationRepository):
@@ -41,7 +42,9 @@ class ApplicationService:
             raise UnauthorizedAccessError("Access denied!")
         applications = await self.application_repo.get_applications_by_job_id(job_id)
         for app in applications:
-            app.resume = storage_client.get_url(app.resume)
+            # Present a signed URL WITHOUT dirtying the column (blob name stays
+            # in the DB; auto-commit must not persist the long signed URL).
+            set_committed_value(app, "resume", storage_client.get_url(app.resume))
         return applications
     
     async def get_application(self, id: str, user_id: str, is_recruiter: bool = False):
@@ -54,13 +57,13 @@ class ApplicationService:
                 raise UnauthorizedAccessError("Access denied!")
         elif str(application.user_id) != user_id:
                 raise UnauthorizedAccessError("Access denied!")
-        application.resume = storage_client.get_url(application.resume)
+        set_committed_value(application, "resume", storage_client.get_url(application.resume))
         return application
     
     async def my_applications(self, user_id: str):
         applications = await self.application_repo.get_applications_by_user_id(user_id)
         for app in applications:
-            app.resume = storage_client.get_url(app.resume)
+            set_committed_value(app, "resume", storage_client.get_url(app.resume))
         return applications
     
     async def withdraw_application(self, id: str, user_id: str):
